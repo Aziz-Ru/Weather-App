@@ -4,7 +4,7 @@ import datetime
 def home(request):
     if 'city' in request.POST:
         city=request.POST['city']
-        print(city)
+        # print(city)
     else :
         city='Dhaka'
         
@@ -23,7 +23,7 @@ def home(request):
     # print(sunset_datetime.strftime("%Y-%m-%d %H:%M:%S")) 
     
     context={
-        'description':res['weather'][0]['description'],
+        'description':res['weather'][0]['description'].capitalize(),
         'icon':res['weather'][0]['icon'],
         'temp':res['main']['temp'],
         'feels_like':res['main']['feels_like'],
@@ -33,7 +33,7 @@ def home(request):
         'humidity':res['main']['humidity'],
         'wind':res['wind']['speed'],
         'clouds':res['clouds']['all'],
-        'city':city,
+        'city':city.capitalize(),
         'country':res['sys']['country'],
         
         
